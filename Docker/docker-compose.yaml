@@ -1,0 +1,21 @@
+version: "3.8" 
+services:
+    sqlserver17:
+        image: 'mcr.microsoft.com/mssql/server:2017-latest-ubuntu'
+        container_name: sqlserver17
+        ports:
+        - "1433:1433"
+        volumes:
+        - data:/app
+        environment:
+        - ACCEPT_EULA=Y
+        - SA_PASSWORD=sqlPassword@3
+        - MSSQL_PID=Express
+        networks:
+        - labnetwork
+volumes:
+    data:
+        external: true
+networks: 
+    labnetwork:
+        driver: bridge
