@@ -1,3 +1,4 @@
+-- SQL Server 17
 IF NOT EXISTS (SELECT * FROM sys.databases WHERE name = 'retail')
 BEGIN
     CREATE DATABASE retail;
@@ -30,6 +31,6 @@ IF OBJECT_ID(N'dbo.offers', N'U') IS NULL
 BEGIN
     CREATE TABLE dbo.offers 
         (id_offer INT NOT NULL PRIMARY KEY,
-        offer_desc INT NOT NULL); 
+        offer_desc VARCHAR(10) NOT NULL); 
 END;
 GO
